@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Shopee_Food
 {
@@ -9,7 +8,8 @@ namespace Shopee_Food
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Content/plugins/jquery/jquery.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -19,12 +19,27 @@ namespace Shopee_Food
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+            //bundles.Add(new Bundle("~/bundles/bootstrap").Include(
+            //          "~/Scripts/bootstrap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+           "~/Content/plugins/bootstrap.bundle.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/plugins/fullcalendar/main.css",
+                      "~/Content/plugins/fontawesome-free/css/all.min.css",
+                      "~/Content/css/adminlte.min.css",
+                      "~/Content/dist/css/adminlte.min.css",
+                      "~/Content/plugins/chart.js/Chart.min.css",
+                      "~/Content/plugins/summernote/summernote-bs4.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/adminlte/js").Include(
+                        "~/Content/js/adminlte.min.js",
+                        "~/Content/plugins/fullcalendar/main.js",
+                        "~/Content/plugins/chart.js/Chart.min.js",
+                        "~/Content/dist/js/pages/dashboard3.js",
+                        "~/Content/plugins/summernote/summernote-bs4.js"));
         }
     }
 }
