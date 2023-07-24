@@ -4,32 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d84cc6fe1f334206b53e511a3e5cbd98" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="DBShopeeFoodModel.ChucVu" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.DanhMuc" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+      <Diagram DiagramId="477a7fddbc6d4f72ae48d42b1bef0e03" Name="Diagram1">
+        <EntityTypeShape EntityType="DBShopeeFoodModel.ChucVu" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.DanhMuc" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.DonHang" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.DonHangChiTiet" Width="1.5" PointX="12" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.HoaDon" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.DonHangChiTiet" Width="1.5" PointX="12" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.HoaDon" Width="1.5" PointX="9.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.KhachHang" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.NhanVien" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.SanPham" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.Shop" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.SanPham" Width="1.5" PointX="9.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.Shop" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.ThanhToan" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.User" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__Users__MaCV__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__DanhMuc__MaShop__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__SanPham__MaDM__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__DonHang__MaKH__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__DonHang__MaSP__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__HoaDon__MaDH__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__DonHangChi__MaSP__534D60F1" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__HoaDon__MaKH__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__HoaDon__MaNV__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__KhachHang__MaTK__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__ThanhToan__MaKH__60A75C0F" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__NhanVien__MaTK__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__SanPham__MaShop__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="DBShopeeFoodModel.FK__Shop__MaTK__403A8C7D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.User" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__Users__MaCV__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__DanhMuc__MaShop__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__SanPham__MaDM__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__DonHang__MaKH__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__DonHang__MaSP__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__HoaDon__MaDH__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__DonHangChi__MaSP__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__HoaDon__MaKH__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__HoaDon__MaNV__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__KhachHang__MaTK__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__ThanhToan__MaKH__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__NhanVien__MaTK__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__SanPham__MaShop__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopeeFoodModel.FK__Shop__MaTK__3F466844" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

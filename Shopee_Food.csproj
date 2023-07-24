@@ -165,12 +165,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdHomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ChucVusController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanViensController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ShopsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShopsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2398,21 +2399,21 @@
     <Content Include="Models\DBShopeeFood.edmx.diagram">
       <DependentUpon>DBShopeeFood.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\NhanViens\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanViens\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanViens\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanViens\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanViens\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ChucVus\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ChucVus\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ChucVus\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\ChucVus\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ChucVus\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shops\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanViens\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanViens\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanViens\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanViens\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhanViens\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -2458,6 +2459,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shops\Create.cshtml" />
+    <Content Include="Views\Shops\Delete.cshtml" />
+    <Content Include="Views\Shops\Details.cshtml" />
+    <Content Include="Views\Shops\Edit.cshtml" />
+    <Content Include="Views\Shops\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,112 +10,112 @@ using Shopee_Food.Models;
 
 namespace Shopee_Food.Areas.Admin.Controllers
 {
-    public class NhanViensController : Controller
+    public class ShopsController : Controller
     {
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 
-        // GET: Admin/NhanViens
+        // GET: Admin/Shops
         public ActionResult Index()
         {
-            var nhanViens = db.NhanViens.Include(n => n.User);
-            return View(nhanViens.ToList());
+            var shops = db.Shops.Include(s => s.User);
+            return View(shops.ToList());
         }
 
-        // GET: Admin/NhanViens/Details/5
+        // GET: Admin/Shops/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
+            Shop shop = db.Shops.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(nhanVien);
+            return View(shop);
         }
 
-        // GET: Admin/NhanViens/Create
+        // GET: Admin/Shops/Create
         public ActionResult Create()
         {
             ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
             return View();
         }
 
-        // POST: Admin/NhanViens/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // POST: Admin/Shops/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaNV,MaTK,MaCV,DanhGia")] NhanVien nhanVien)
+        public ActionResult Create([Bind(Include = "MaShop,TenShop,DanhGia,TinhTrang,SoLuongSanPham,DoanhThu,AnhBia,AnhDaiDien,AnhThucTe,MaTK")] Shop shop)
         {
             if (ModelState.IsValid)
             {
-                db.NhanViens.Add(nhanVien);
+                db.Shops.Add(shop);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
-            return View(nhanVien);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // GET: Admin/NhanViens/Edit/5
+        // GET: Admin/Shops/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
+            Shop shop = db.Shops.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
-            return View(nhanVien);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // POST: Admin/NhanViens/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // POST: Admin/Shops/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaNV,MaTK,MaCV,DanhGia")] NhanVien nhanVien)
+        public ActionResult Edit([Bind(Include = "MaShop,TenShop,DanhGia,TinhTrang,SoLuongSanPham,DoanhThu,AnhBia,AnhDaiDien,AnhThucTe,MaTK")] Shop shop)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nhanVien).State = EntityState.Modified;
+                db.Entry(shop).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
-            return View(nhanVien);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // GET: Admin/NhanViens/Delete/5
+        // GET: Admin/Shops/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            if (nhanVien == null)
+            Shop shop = db.Shops.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(nhanVien);
+            return View(shop);
         }
 
-        // POST: Admin/NhanViens/Delete/5
+        // POST: Admin/Shops/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NhanVien nhanVien = db.NhanViens.Find(id);
-            db.NhanViens.Remove(nhanVien);
+            Shop shop = db.Shops.Find(id);
+            db.Shops.Remove(shop);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

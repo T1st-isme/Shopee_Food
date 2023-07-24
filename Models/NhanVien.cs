@@ -22,7 +22,6 @@ namespace Shopee_Food.Models
     
         public int MaNV { get; set; }
         public int MaTK { get; set; }
-        public string ChucVu { get; set; }
         public string DanhGia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
