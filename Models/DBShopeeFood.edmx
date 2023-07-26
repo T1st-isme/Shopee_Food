@@ -101,6 +101,7 @@
           <Property Name="AnhDaiDien" Type="varchar" MaxLength="50" />
           <Property Name="AnhThucTe" Type="varchar" MaxLength="50" />
           <Property Name="MaTK" Type="int" Nullable="false" />
+          <Property Name="HinhMenu" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -566,6 +567,7 @@
           <NavigationProperty Name="DanhMucs" Relationship="DBShopeeFoodModel.FK__DanhMuc__MaShop__4222D4EF" FromRole="Shop" ToRole="DanhMuc" />
           <NavigationProperty Name="SanPhams" Relationship="DBShopeeFoodModel.FK__SanPham__MaShop__5441852A" FromRole="Shop" ToRole="SanPham" />
           <NavigationProperty Name="User" Relationship="DBShopeeFoodModel.FK__Shop__MaTK__3F466844" FromRole="Shop" ToRole="User" />
+          <Property Name="HinhMenu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -773,7 +775,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -872,6 +874,7 @@
           <EntitySetMapping Name="Shops">
             <EntityTypeMapping TypeName="DBShopeeFoodModel.Shop">
               <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="HinhMenu" ColumnName="HinhMenu" />
                 <ScalarProperty Name="MaTK" ColumnName="MaTK" />
                 <ScalarProperty Name="AnhThucTe" ColumnName="AnhThucTe" />
                 <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />

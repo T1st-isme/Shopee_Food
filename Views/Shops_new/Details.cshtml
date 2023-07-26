@@ -1,0 +1,98 @@
+﻿@model Shopee_Food.Models.Shop
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutDangKi.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenShop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenShop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanhThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhBia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhBia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhDaiDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhDaiDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhThucTe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhThucTe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhMenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhMenu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.TaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.TaiKhoan)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaShop }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
