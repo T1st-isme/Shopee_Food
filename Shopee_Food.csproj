@@ -175,7 +175,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ShopsController.cs" />
+    <Compile Include="Controllers\Users_newController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2481,11 +2481,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shops\Create.cshtml" />
-    <Content Include="Views\Shops\Delete.cshtml" />
-    <Content Include="Views\Shops\Details.cshtml" />
-    <Content Include="Views\Shops\Edit.cshtml" />
-    <Content Include="Views\Shops\Index.cshtml" />
+    <Content Include="Views\Users_new\Create.cshtml" />
+    <Content Include="Views\Users_new\Delete.cshtml" />
+    <Content Include="Views\Users_new\Details.cshtml" />
+    <Content Include="Views\Users_new\Edit.cshtml" />
+    <Content Include="Views\Users_new\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
