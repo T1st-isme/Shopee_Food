@@ -31,6 +31,7 @@ namespace Shopee_Food.Models
         public string AnhDaiDien { get; set; }
         public string AnhThucTe { get; set; }
         public int MaTK { get; set; }
+        public string HinhMenu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhMuc> DanhMucs { get; set; }

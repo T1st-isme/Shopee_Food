@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="477a7fddbc6d4f72ae48d42b1bef0e03" Name="Diagram1" ZoomLevel="72">
+      <Diagram DiagramId="477a7fddbc6d4f72ae48d42b1bef0e03" Name="Diagram1" ZoomLevel="92">
         <EntityTypeShape EntityType="DBShopeeFoodModel.ChucVu" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.DanhMuc" Width="1.5" PointX="7.5" PointY="7.5" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.DonHang" Width="1.5" PointX="10.5" PointY="2.875" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.DonHangChiTiet" Width="1.5" PointX="12" PointY="7.375" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.HoaDon" Width="1.5" PointX="14.75" PointY="6.5" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.DanhMuc" Width="1.5" PointX="7.5" PointY="11.25" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.DonHang" Width="1.5" PointX="7.5" PointY="2.875" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.DonHangChiTiet" Width="1.5" PointX="12" PointY="11.125" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.HoaDon" Width="1.5" PointX="9.75" PointY="4.375" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.KhachHang" Width="1.5" PointX="5.25" PointY="2.875" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.NhanVien" Width="1.5" PointX="5.25" PointY="11" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.SanPham" Width="1.5" PointX="9.75" PointY="6.875" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.Shop" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.NhanVien" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.SanPham" Width="1.5" PointX="9.75" PointY="10.5" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.Shop" Width="1.5" PointX="5.25" PointY="10.5" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DBShopeeFoodModel.ThanhToan" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="DBShopeeFoodModel.ThanhToan" Width="1.5" PointX="7.5" PointY="7.25" />
         <EntityTypeShape EntityType="DBShopeeFoodModel.User" Width="1.5" PointX="3" PointY="6.125" />
         <AssociationConnector Association="DBShopeeFoodModel.FK__Users__MaCV__3C69FB99" />
         <AssociationConnector Association="DBShopeeFoodModel.FK__DanhMuc__MaShop__4222D4EF" />
