@@ -19,7 +19,7 @@ namespace Shopee_Food.Models
         {
             this.HoaDons = new HashSet<HoaDon>();
         }
-    
+
         public int MaNV { get; set; }
         public int MaTK { get; set; }
         public string DanhGia { get; set; }

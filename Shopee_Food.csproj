@@ -165,9 +165,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChucVusController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanViensController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShopsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\ShopVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -218,6 +222,9 @@
       <DependentUpon>DBShopeeFood.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Shop.cs">
+      <DependentUpon>DBShopeeFood.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DBShopeeFood.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhToan.cs">
@@ -2414,6 +2421,21 @@
     <Content Include="Areas\Admin\Views\NhanViens\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhanViens\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhanViens\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChucVus\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

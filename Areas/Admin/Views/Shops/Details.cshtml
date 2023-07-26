@@ -1,91 +1,138 @@
 ﻿@model Shopee_Food.Models.Shop
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết Shop";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Shop</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenShop)
-        </dt>
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin nhân viên <b>@Model.TenShop</b></h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenShop)
-        </dd>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <dl class="dl-horizontal" style="font-size: 20px">
+                <dt>
+                    Mã Shop
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DanhGia)
-        </dt>
+                <dd>
+                    @("SHOP" + Model.TenShop)
+                </dd>
+                <dt>
+                    Tên Shop
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DanhGia)
-        </dd>
+                <dd>
+                    @Model.TenShop
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TinhTrang)
-        </dt>
+                <dt>
+                    Đánh giá
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TinhTrang)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DanhGia)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoLuongSanPham)
-        </dt>
+                <dt>
+                    Tình trạng
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoLuongSanPham)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.TinhTrang)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DoanhThu)
-        </dt>
+                <dt>
+                    Số lượng sản phẩm
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DoanhThu)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.SoLuongSanPham)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AnhBia)
-        </dt>
+                <dt>
+                    Doanh thu
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AnhBia)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DoanhThu)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AnhDaiDien)
-        </dt>
+                <dt>
+                    Ảnh bìa
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AnhDaiDien)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.AnhBia)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AnhThucTe)
-        </dt>
+                <dt>
+                    Ảnh đại diện
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AnhThucTe)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.AnhDaiDien)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.TaiKhoan)
-        </dt>
+                <dt>
+                    Ảnh thực tế
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.TaiKhoan)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.AnhThucTe)
+                </dd>
 
-    </dl>
+                <dt>
+                    Tài khoản
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.TaiKhoan)
+                </dd>
+                <dt>
+                    Địa chỉ
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.DiaChi)
+                </dd>
+                <dt>
+                    SĐT
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.SDT)
+                </dd>
+            </dl>
+        </div>
+        <!-- /.card-body -->
+        @*<div class="card-footer">
+                Footer
+            </div>*@
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaShop }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-info" href="/Admin/Shops/Edit/@Model.MaShop">
+        <i class="fas fa-pencil-alt">
+        </i>
+        Sửa
+    </a> |
+    <a class="btn btn-secondary" href="/Admin/NhanViens/Index">
+        <i class="fas fa-long-arrow-alt-left">
+        </i>
+        Quay về
+    </a>
 </p>

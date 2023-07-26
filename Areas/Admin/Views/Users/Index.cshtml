@@ -3,74 +3,78 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+    int i = 0;
 }
 
-<h2>Index</h2>
+<h2>Danh sách người dùng</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>STT</th>
         <th>
-            @Html.DisplayNameFor(model => model.TaiKhoan)
+            Tài khoản
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MatKhau)
+            Mật khẩu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HoTen)
+            Họ tên
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
+            Địa chỉ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SDT)
+            SĐT
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GioiTinh)
+            Giới tính
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChucVu.TenCV)
+            Chức vụ
         </th>
-        <th></th>
+        <th>Thao tác</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaiKhoan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MatKhau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoTen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GioiTinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTK }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaTK }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTK })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        i++;
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
+            </td>
+            <td>
+                <a href="/Admin/Users/Edit/@item.MaTK" class="btn btn-success">Sửa</a>
+                <a href="/Admin/Users/Details/@item.MaTK" class="btn btn-primary">Chi tiết</a>
+                <a href="/Admin/Users/Delete/@item.MaTK" class="btn btn-danger">Xóa</a>
+            </td>
+        </tr>
+    }
 </table>

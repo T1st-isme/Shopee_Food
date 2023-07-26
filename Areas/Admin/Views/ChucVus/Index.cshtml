@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Shopee_Food.Models.ChucVu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+    int i = 0;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenCV)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        i++;
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCV)
+            </td>
+            <td>
+                <a href="/Admin/ChucVus/Edit/@item.MaCV" class="btn btn-success">Sửa</a>
+                <a href="/Admin/ChucVus/Delete/@item.MaCV" class="btn btn-danger">Xóa</a>
+            </td>
+        </tr>
+    }
+</table>

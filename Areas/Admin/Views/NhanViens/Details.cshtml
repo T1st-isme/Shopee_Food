@@ -1,43 +1,108 @@
 ﻿@model Shopee_Food.Models.NhanVien
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Thông tin nhân viên";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>NhanVien</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaCV)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaCV)
-        </dd>
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin nhân viên <b>@Model.User.HoTen</b></h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DanhGia)
-        </dt>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <dl class="dl-horizontal" style="font-size: 20px">
+                <dt>
+                    Mã nhân viên
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DanhGia)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.MaNV)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.TaiKhoan)
-        </dt>
+                <dt>
+                    Họ tên
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.TaiKhoan)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.User.HoTen)
+                </dd>
 
-    </dl>
+                <dt>
+                    Tài khoản
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.TaiKhoan)
+                </dd>
+                <dt>
+                    Mật khẩu
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.MatKhau)
+                </dd>
+                <dt>
+                    Email
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.User.Email)
+                </dd>
+                <dt>
+                    SĐT
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.User.SDT)
+                </dd>
+                <dt>
+                    Địa chỉ
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.User.DiaChi)
+                </dd>
+                <dt>
+                    Đánh giá
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DanhGia)
+                </dd>
+                <dt>
+                    Chức vụ
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.User.ChucVu.TenCV)
+                </dd>
+            </dl>
+        </div>
+        <!-- /.card-body -->
+        @*<div class="card-footer">
+                Footer
+            </div>*@
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNV }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-info" href="/Admin/NhanViens/Edit/@Model.MaNV">
+        <i class="fas fa-pencil-alt">
+        </i>
+        Sửa
+    </a> |
+    <a class="btn btn-secondary" href="/Admin/NhanViens/Index">
+        <i class="fas fa-long-arrow-alt-left">
+        </i>
+        Quay về
+    </a>
 </p>

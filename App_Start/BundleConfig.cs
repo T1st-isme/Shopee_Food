@@ -32,6 +32,8 @@ namespace Shopee_Food
                       "~/Content/dist/css/adminlte.min.css",
                       "~/Content/plugins/chart.js/Chart.min.css",
                       "~/Content/plugins/summernote/summernote-bs4.css",
+                      "~/Content/plugins/datatables-bs4/dataTables.bootstrap4.min.css",
+                      "~/Content/plugins/datatables-buttons/css/buttons.bootstrap4.min.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/adminlte/js").Include(
@@ -39,7 +41,10 @@ namespace Shopee_Food
                         "~/Content/plugins/fullcalendar/main.js",
                         "~/Content/plugins/chart.js/Chart.min.js",
                         "~/Content/dist/js/pages/dashboard3.js",
-                        "~/Content/plugins/summernote/summernote-bs4.js"));
+                        "~/Content/plugin/datatables-responsive/js/dataTables.responsive.min.js",
+                        "~/Content/plugin/datatables-responsive/js/responsive.bootstrap4.min.js",
+                        "~/Content/plugin/datatables-bs4/js/dataTables.bootstrap4.min.js",
+                        "~/Content/plugins/datatables-bs4/summernote-bs4.js"));
         }
     }
 }
