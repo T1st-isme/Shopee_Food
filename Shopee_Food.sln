@@ -5,11 +5,6 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopee_Food", "Shopee_Food.csproj", "{1F1E2B9E-A3DD-4C7F-872E-B522BB38C946}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A97B033B-28F4-473F-823E-B05BE2FE44C4}"
-	ProjectSection(SolutionItems) = preProject
-		dsadad.txt = dsadad.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
