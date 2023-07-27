@@ -2604,26 +2604,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Users_new\LoginCus.cshtml" />
-    <Content Include="Views\Users_new\RegisterUser.cshtml" />
-    <Content Include="Views\Users_new\Create.cshtml" />
-    <Content Include="Views\Users_new\Delete.cshtml" />
-    <Content Include="Views\Users_new\Details.cshtml" />
-    <Content Include="Views\Users_new\Edit.cshtml" />
-    <Content Include="Views\Users_new\Index.cshtml" />
-    <Content Include="Views\Shops_new\all.cshtml" />
-    <Content Include="Views\Shops_new\Create.cshtml" />
-    <Content Include="Views\Shops_new\Delete.cshtml" />
-    <Content Include="Views\Shops_new\Details.cshtml" />
-    <Content Include="Views\Shops_new\Edit.cshtml" />
-    <Content Include="Views\Shops_new\Index.cshtml" />
-    <Content Include="Views\Shops_new\UserDetails.cshtml" />
-    <Content Include="Views\Shared\_Dangkiquan.cshtml" />
-    <Content Include="Views\Shared\_DangkiUser.cshtml" />
-    <Content Include="Views\Shared\_DangnhapUser.cshtml" />
-    <Content Include="Views\Shared\_LayoutDangKi.cshtml" />
-    <Content Include="Views\Shared\_LayoutDkb1.cshtml" />
-    <Content Include="Views\Shops_new\dangki.cshtml" />
+    <Content Include="Views\Shops\Create.cshtml" />
+    <Content Include="Views\Shops\Delete.cshtml" />
+    <Content Include="Views\Shops\Details.cshtml" />
+    <Content Include="Views\Shops\Edit.cshtml" />
+    <Content Include="Views\Shops\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
