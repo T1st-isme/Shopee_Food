@@ -3,32 +3,177 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<style>
+    .main_body{
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        margin-top: 50px;
+    }
+    .body_left{
+        display: flex;
+        flex-direction:column;
+        width: 40%;
+    }
+    .nav_select ul li {
+        border: 1px solid white;
+        padding: 5px 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    .nav_select ul li:hover{
+        background-color: white;
+        color: black;
+    }
+    .body_right{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 100%;
+        /*overflow: scroll;*/
+        scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* Edge */
+          ::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+          }
+        
+    }
+    .card_box {
+        width: 150px;
+        overflow: hidden;
+        border: 0.5px solid grey;
+        padding-bottom: 10px;
+        /*border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;*/
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+    .card_box:hover{
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+    .card_box .name_sp {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+    }
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+        .card_box .deal_sp {
+            color: red;
+            text-align: center;
+            font-size: 16px
+        }        
+    .card_box .address_sp{
+        margin-left: 5px;
+        width: 100%;
+        overflow: hidden;
+    }
+</style>
+
+<main>
+    <div class="main_body">
+        <div class="body_left">
+            <p style="font-size: 23px; color: white;">Đặt Đồ ăn, giao hàng từ 20'...</p>
+            <p style="color: white;">Có 82999 Địa Điểm Ở TP. HCM Từ 00:00 - 23:59</p>
+            <div class="btn_sub_search" style="display: flex; margin-top: 30px; margin-bottom: 30px;">
+                <input type="text" placeholder="Tìm địa điểm, món ăn, địa chỉ,..." style="width: 80%; height: 50px; padding: 8px 12px; border: 1px solid #ccc; border-top-left-radius:4px;border-bottom-left-radius:4px; font-size: 16px;" />
+                <span class="search-icon" style="display: flex; justify-content:center;align-items:center; width: 20%; background-color: deepskyblue; padding: 8px; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
+                    <i class="fas fa-search" style="color: white;"></i>
+                </span>
+            </div>
+            <div class="nav_select">
+                <ul style="display: flex; flex-wrap:wrap;">
+                    <li>All</li>
+                    <li> Đồ Ăn</li>
+                    <li>Đồ uống</li>
+                    <li> Đồ Chay</li>
+                    <li>bánh Kem</li>
+                    <li> Tráng Miệng</li>
+                    <li> Đồ Ăn</li>
+                    <li>Đồ uống</li>
+                    <li> Đồ Chay</li>
+                    <li>bánh Kem</li>
+                    <li> Tráng Miệng</li>
+                    <li> Đồ Chay</li>
+                    <li>bánh Kem</li>
+                    <li> Tráng Miệng</li>
+                </ul>
+            </div>
+        </div>
+        <div class="body_right">
+            <div style="background-color: white; height: 45px; display: flex; align-items: center; border-radius: 5px; margin-bottom: 30px;">
+                <p style=" margin-left: 20px;">Đồ Ăn     -> Chọn địa chỉ giao hàng</p>
+            </div>
+            <div style=" background-color: white; height: 600px; border-radius: 5px;padding: 10px; overflow-y: scroll;"  >
+                <p style=" color: black; font-size: 20px;">Ưu Đãi</p>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <a href="#" class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+                    <a class=" card_box">
+                        <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
+                        <p class="name_sp"> Cơm Tấm ba ghiền</p>
+                        <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
+                        <p class="deal_sp"> DEAL 1K</p>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
     </div>
 </main>
