@@ -42,8 +42,6 @@ namespace Shopee_Food
                       "~/Content/vendor/animsition/css/animsition.min.css",
                       "~/Content/vendor/select2/select2.min.css",
                       "~/Content/vendor/daterangepicker/daterangepicker.css",
-                      "~/Content/css/util.css",
-                      "~/Content/css/main.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/adminlte/js").Include(

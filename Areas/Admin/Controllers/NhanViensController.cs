@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
+using Shopee_Food.Areas.Admin.map;
 using Shopee_Food.Models;
 
 namespace Shopee_Food.Areas.Admin.Controllers
@@ -15,10 +13,13 @@ namespace Shopee_Food.Areas.Admin.Controllers
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 
         // GET: Admin/NhanViens
-        public ActionResult Index()
+        public ActionResult Index(string tukhoa, string danhgia)
         {
-            var nhanViens = db.NhanViens.Include(n => n.User);
-            return View(nhanViens.ToList());
+            mapNhanVien map = new mapNhanVien();
+            var dataNV = map.TimKiem(tukhoa, danhgia).ToList();
+            ViewBag.TimKiem = tukhoa;
+            ViewBag.DanhGia = danhgia;
+            return View(dataNV);
         }
 
         // GET: Admin/NhanViens/Details/5

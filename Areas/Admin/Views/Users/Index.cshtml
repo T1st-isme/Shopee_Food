@@ -1,80 +1,105 @@
 ﻿@model IEnumerable<Shopee_Food.Models.User>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách người dùng";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
     int i = 0;
 }
-
-<h2>Danh sách người dùng</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>STT</th>
-        <th>
-            Tài khoản
-        </th>
-        <th>
-            Mật khẩu
-        </th>
-        <th>
-            Họ tên
-        </th>
-        <th>
-            Địa chỉ
-        </th>
-        <th>
-            SĐT
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            Giới tính
-        </th>
-        <th>
-            Chức vụ
-        </th>
-        <th>Thao tác</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        i++;
-        <tr>
-            <td>@i</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TaiKhoan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatKhau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoTen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaChi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SDT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GioiTinh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
-            </td>
-            <td>
-                <a href="/Admin/Users/Edit/@item.MaTK" class="btn btn-success">Sửa</a>
-                <a href="/Admin/Users/Details/@item.MaTK" class="btn btn-primary">Chi tiết</a>
-                <a href="/Admin/Users/Delete/@item.MaTK" class="btn btn-danger">Xóa</a>
-            </td>
-        </tr>
+<style>
+    th {
+        text-align: center
     }
-</table>
+</style>
+<p>
+    <a href="/Admin/Users/Create"
+       class="btn btn-primary">Thêm người dùng</a>
+</p>
+<div>
+    <form>
+        <select name="danhgia" value="@ViewBag.DanhGia">
+            <option>Tất cả</option>
+            @foreach (var item in new Shopee_Food.Areas.Admin.map.mapNhanVien().DanhSach())
+            {
+                <option value="@item.DanhGia" @Html.Raw(item.DanhGia == ViewBag.DanhGia ? "selected" : "")>@item.DanhGia</option>
+            }
+        </select>
+        <input name="tukhoa" value="@ViewBag.TimKiem" />
+        <button>
+            Tìm kiếm
+        </button>
+    </form>
+</div>
+
+<div class="card-body">
+    <table class="table table-bordered table-responsive-md table-striped">
+        <thead style="color:cadetblue">
+            <tr>
+                <th width="50px">STT</th>
+                <th width="150px">Mã người dùng</th>
+                <th>Họ và tên</th>
+                <th>Tài khoản</th>
+                <th>Mật khẩu</th>
+                <th>Địa chỉ</th>
+                <th>SĐT</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Chức vụ</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                i++;
+                <tr>
+                    <td align="center">@i</td>
+                    <td align="center">
+                        @("TK" + item.MaTK)
+                    </td>
+                    <td>
+                        @item.HoTen
+                    </td>
+                    <td>
+                        @item.TaiKhoan
+                    </td>
+                    <td>
+                        @item.MatKhau
+                    </td>
+
+                    <td>
+                        @item.DiaChi
+                    </td>
+                    <td>
+                        @item.SDT
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.GioiTinh
+                    </td>
+                    <td>
+                        @item.ChucVu.TenCV
+                    </td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="/Admin/Users/Edit/@item.MaTK">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            Sửa
+                        </a>
+                        <a class="btn btn-primary btn-sm" href="/Admin/Users/Details/@item.MaTK">
+                            <i class="fas fa-folder">
+                            </i>
+                            Chi tiết
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/Admin/Users/Delete/@item.MaTK">
+                            <i class="fas fa-trash">
+                            </i>
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

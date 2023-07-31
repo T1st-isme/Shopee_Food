@@ -1,38 +1,57 @@
 ﻿@model Shopee_Food.Models.ChucVu
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Sửa chức vụ";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
 }
-
-<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>ChucVu</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.MaCV)
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Chức vụ <b>@Model.TenCV</b> </h3>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenCV, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenCV, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenCV, "", new { @class = "text-danger" })
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.MaCV)
+                        <div class="form-group">
+                            <label>Tài khoản</label>
+                            @Html.EditorFor(model => model.TenCV, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenCV, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <!-- /.content -->
+
+        <div>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-secondary" href="/Admin/ChucVus">
+                        <i class="fas fa-long-arrow-alt-left">
+                        </i>
+                        Quay về
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Lưu
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
