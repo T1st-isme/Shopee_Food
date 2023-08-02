@@ -1,11 +1,9 @@
 ﻿@model Shopee_Food.Models.NhanVien
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Thêm nhân viên";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
 }
-
-<h2>Create</h2>
 
 @using (Html.BeginForm())
 {
@@ -17,7 +15,7 @@
             <div class="col-md">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">General</h3>
+                        <h3 class="card-title">Thêm nhân viên mới</h3>
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -40,7 +38,7 @@
         <div>
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-secondary" href="/Admin/NhanViens/Index">
+                    <a class="btn btn-secondary" href="/Admin/NhanViens">
                         <i class="fas fa-long-arrow-alt-left">
                         </i>
                         Quay về

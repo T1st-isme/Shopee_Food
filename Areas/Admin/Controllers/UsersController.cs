@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Shopee_Food.Models;
+using Shopee_Food.Areas.Admin.map;
 
 namespace Shopee_Food.Areas.Admin.Controllers
 {
@@ -44,7 +45,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         }
 
         // POST: Admin/Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -78,7 +79,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         }
 
         // POST: Admin/Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -118,6 +119,54 @@ namespace Shopee_Food.Areas.Admin.Controllers
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string taiKhoan, string passWord)
+        {
+            //Check tai khoan va mat khau isEmpty() => return LoginPage
+            if (string.IsNullOrEmpty(taiKhoan) || string.IsNullOrEmpty(passWord))
+            {
+                ViewBag.Error = "Tài khoản và mật khẩu không được trống";
+                return View();
+            }
+
+            //find tai khoan trong db
+            var mapTaiKhoan = new mapTaiKhoan().ChiTiet(taiKhoan);
+
+            //check tai khoan co ton tai hay khong
+            if (mapTaiKhoan == null)
+            {
+                ViewBag.Error = "Tài khoản không tồn tại";
+                ViewBag.TaiKhoan = taiKhoan;
+                return View();
+            }
+
+            //check mat khau co dung hay khong
+            if (mapTaiKhoan.MatKhau != passWord)
+            {
+                ViewBag.Error = "Mật khẩu không đúng";
+                ViewBag.TaiKhoan = taiKhoan;
+                return View();
+            }
+
+            ////check tai khoan co phai la admin hay khong
+            //if (mapTaiKhoan.MaCV != 1)
+            //{
+            //    ViewBag.Error = "Tài khoản không phải là admin";
+            //    ViewBag.TaiKhoan = taiKhoan;
+            //    return View();
+            //}
+
+            //set session
+            Session["user"] = mapTaiKhoan;
+
+            return Redirect("/Admin/AdHome");
         }
 
         protected override void Dispose(bool disposing)

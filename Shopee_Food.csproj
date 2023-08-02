@@ -166,11 +166,12 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChucVusController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanViensController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShopsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\map\mapNhanVien.cs" />
+    <Compile Include="Areas\Admin\map\mapTaiKhoan.cs" />
     <Compile Include="Areas\Admin\ShopVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -270,6 +271,7 @@
     <Content Include="Content\css\alt\adminlte.plugins.css" />
     <Content Include="Content\css\alt\adminlte.plugins.min.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\searchbox.css" />
     <Content Include="Content\css\Shop\dkb1.css" />
     <Content Include="Content\css\Shop\Global.css" />
     <Content Include="Content\css\Shop\NgKQun.css" />
@@ -2473,7 +2475,6 @@
     <Content Include="Areas\Admin\Views\NhanViens\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChucVus\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ChucVus\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ChucVus\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ChucVus\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ChucVus\Index.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHangs\Create.cshtml" />
@@ -2481,11 +2482,6 @@
     <Content Include="Areas\Admin\Views\KhachHangs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KhachHangs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -2559,6 +2555,7 @@
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Views\Users\Login.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -2604,6 +2601,24 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shops_new\all.cshtml" />
+    <Content Include="Views\Shops_new\Create.cshtml" />
+    <Content Include="Views\Shops_new\dangki.cshtml" />
+    <Content Include="Views\Shops_new\Edit.cshtml" />
+    <Content Include="Views\Shops_new\Index.cshtml" />
+    <Content Include="Views\Shops_new\UserDetails.cshtml" />
+    <Content Include="Views\Users_new\Create.cshtml" />
+    <Content Include="Views\Users_new\Delete.cshtml" />
+    <Content Include="Views\Users_new\Details.cshtml" />
+    <Content Include="Views\Users_new\Edit.cshtml" />
+    <Content Include="Views\Users_new\Index.cshtml" />
+    <Content Include="Views\Users_new\LoginCus.cshtml" />
+    <Content Include="Views\Users_new\RegisterUser.cshtml" />
+    <Content Include="Views\Shared\_Dangkiquan.cshtml" />
+    <Content Include="Views\Shared\_DangkiUser.cshtml" />
+    <Content Include="Views\Shared\_DangnhapUser.cshtml" />
+    <Content Include="Views\Shared\_LayoutDangKi.cshtml" />
+    <Content Include="Views\Shared\_LayoutDkb1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

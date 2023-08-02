@@ -69,6 +69,11 @@ namespace Shopee_Food.Controllers
                 ViewBag.ErrorInfo = "Không có KH này";
                 return View("LoginCus");
             }
+            else if (check.TaiKhoan == _cus.TaiKhoan && check.MatKhau != _cus.MatKhau)
+            {
+                ViewBag.ErrorInfo = "Tài khoản hoặc mật khẩu không đúng";
+                return View("LoginCus");
+            }
             else
             {
                 db.Configuration.ValidateOnSaveEnabled = false;
