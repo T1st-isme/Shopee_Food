@@ -10,107 +10,112 @@ using Shopee_Food.Models;
 
 namespace Shopee_Food.Areas.Admin.Controllers
 {
-    public class ChucVusController : Controller
+    public class ShopsController : Controller
     {
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 
-        // GET: Admin/ChucVu
+        // GET: Admin/Shop
         public ActionResult Index()
         {
-            return View(db.ChucVu.ToList());
+            var shops = db.Shop.Include(s => s.Users);
+            return View(shops.ToList());
         }
 
-        // GET: Admin/ChucVu/Details/5
+        // GET: Admin/Shop/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChucVu chucVu = db.ChucVu.Find(id);
-            if (chucVu == null)
+            Shop shop = db.Shop.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(chucVu);
+            return View(shop);
         }
 
-        // GET: Admin/ChucVu/Create
+        // GET: Admin/Shop/Create
         public ActionResult Create()
         {
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan");
             return View();
         }
 
-        // POST: Admin/ChucVu/Create
+        // POST: Admin/Shop/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaCV,TenCV")] ChucVu chucVu)
+        public ActionResult Create([Bind(Include = "MaShop,TenShop,DanhGia,TinhTrang,SoLuongSanPham,DoanhThu,AnhBia,AnhDaiDien,AnhThucTe,MaTK")] Shop shop)
         {
             if (ModelState.IsValid)
             {
-                db.ChucVu.Add(chucVu);
+                db.Shop.Add(shop);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(chucVu);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // GET: Admin/ChucVu/Edit/5
+        // GET: Admin/Shop/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChucVu chucVu = db.ChucVu.Find(id);
-            if (chucVu == null)
+            Shop shop = db.Shop.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(chucVu);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // POST: Admin/ChucVu/Edit/5
+        // POST: Admin/Shop/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaCV,TenCV")] ChucVu chucVu)
+        public ActionResult Edit([Bind(Include = "MaShop,TenShop,DanhGia,TinhTrang,SoLuongSanPham,DoanhThu,AnhBia,AnhDaiDien,AnhThucTe,MaTK")] Shop shop)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(chucVu).State = EntityState.Modified;
+                db.Entry(shop).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(chucVu);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // GET: Admin/ChucVu/Delete/5
+        // GET: Admin/Shop/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChucVu chucVu = db.ChucVu.Find(id);
-            if (chucVu == null)
+            Shop shop = db.Shop.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(chucVu);
+            return View(shop);
         }
 
-        // POST: Admin/ChucVu/Delete/5
+        // POST: Admin/Shop/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChucVu chucVu = db.ChucVu.Find(id);
-            db.ChucVu.Remove(chucVu);
+            Shop shop = db.Shop.Find(id);
+            db.Shop.Remove(shop);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

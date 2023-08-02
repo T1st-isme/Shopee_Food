@@ -16,7 +16,7 @@
             <option>Tất cả</option>
             @foreach (var item in new Shopee_Food.Areas.Admin.map.mapNhanVien().DanhSach())
             {
-                <option value="@item.User.ChucVu.TenCV">@item.User.ChucVu.TenCV</option>
+                <option value="@item.Users.ChucVu.TenCV">@item.Users.ChucVu.TenCV</option>
             }
         </select>
         <input name="tukhoa" value="@ViewBag.TimKiem" />
