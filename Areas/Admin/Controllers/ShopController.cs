@@ -10,7 +10,7 @@ using Shopee_Food.Models;
 
 namespace Shopee_Food.Areas.Admin.Controllers
 {
-    public class ShopsController : Controller
+    public class ShopController : Controller
     {
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 

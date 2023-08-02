@@ -53,16 +53,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Users.TaiKhoan)
+            @Html.DisplayNameFor(model => model.User.TaiKhoan)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Users.TaiKhoan)
+            @Html.DisplayFor(model => model.User.TaiKhoan)
         </dd>
+
     </dl>
 
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
