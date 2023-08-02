@@ -25,20 +25,20 @@ namespace Shopee_Food.Controllers
         [HttpGet]
         public ActionResult RegisterUser()
         {
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV");
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View();
         }
 
         [HttpPost]
-        public ActionResult RegisterUser(User _user)
+        public ActionResult RegisterUser(Users _user)
         {
             if (ModelState.IsValid)
             {
-                var check_ID = db.Users.Where(s => s.MaTK == _user.MaTK).FirstOrDefault();
+                var check_ID = db.User.Where(s => s.MaTK == _user.MaTK).FirstOrDefault();
                 if (check_ID == null)
                 {
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    db.Users.Add(_user);
+                    db.User.Add(_user);
                     db.SaveChanges();
                     return RedirectToAction("LoginCus", "User_new");
                 }
@@ -48,7 +48,7 @@ namespace Shopee_Food.Controllers
                     return View();
                 }
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV");
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View();
         }
 
@@ -60,10 +60,10 @@ namespace Shopee_Food.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoginCus(User _cus)
+        public ActionResult LoginCus(Users _cus)
         {
             // check là khách hàng cần tìm
-            var check = db.Users.Where(s => s.TaiKhoan == _cus.TaiKhoan && s.MatKhau == _cus.MatKhau).FirstOrDefault();
+            var check = db.User.Where(s => s.TaiKhoan == _cus.TaiKhoan && s.MatKhau == _cus.MatKhau).FirstOrDefault();
             if (check == null)  //không có KH
             {
                 ViewBag.ErrorInfo = "Không có KH này";
@@ -89,7 +89,7 @@ namespace Shopee_Food.Controllers
         // GET: Users_new
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.ChucVu);
+            var users = db.User.Include(u => u.ChucVu);
             return View(users.ToList());
         }
 
@@ -100,7 +100,7 @@ namespace Shopee_Food.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User users = db.Users.Find(id);
+            Users users = db.User.Find(id);
             if (users == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace Shopee_Food.Controllers
         // GET: Users_new/Create
         public ActionResult Create()
         {
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV");
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View();
         }
 
@@ -120,15 +120,15 @@ namespace Shopee_Food.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV,CCCD")] User users)
+        public ActionResult Create([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV,CCCD")] Users users)
         {
             if (ModelState.IsValid)
             {
-                var check_ID = db.Users.Where(s => s.MaTK == users.MaTK).FirstOrDefault();
+                var check_ID = db.User.Where(s => s.MaTK == users.MaTK).FirstOrDefault();
                 if (check_ID == null)
                 {
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    db.Users.Add(users);
+                    db.User.Add(users);
                     db.SaveChanges();
                     return RedirectToAction("LoginCus");
                 }
@@ -138,7 +138,7 @@ namespace Shopee_Food.Controllers
                     return View();
                 }
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", users.MaCV);
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", users.MaCV);
             return View(users);
         }
 
@@ -149,12 +149,12 @@ namespace Shopee_Food.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User users = db.Users.Find(id);
+            Users users = db.User.Find(id);
             if (users == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", users.MaCV);
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", users.MaCV);
             return View(users);
         }
 
@@ -163,7 +163,7 @@ namespace Shopee_Food.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV,CCCD")] User users)
+        public ActionResult Edit([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV,CCCD")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -171,7 +171,7 @@ namespace Shopee_Food.Controllers
                 db.SaveChanges();
                 return RedirectToAction("all", "Shops_new", new { id = users.MaTK });
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", users.MaCV);
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", users.MaCV);
             return View(users);
         }
 
@@ -182,7 +182,7 @@ namespace Shopee_Food.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User users = db.Users.Find(id);
+            Users users = db.User.Find(id);
             if (users == null)
             {
                 return HttpNotFound();
@@ -195,8 +195,8 @@ namespace Shopee_Food.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User users = db.Users.Find(id);
-            db.Users.Remove(users);
+            Users users = db.User.Find(id);
+            db.User.Remove(users);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -10,25 +10,25 @@ using Shopee_Food.Models;
 
 namespace Shopee_Food.Areas.Admin.Controllers
 {
-    public class ShopsController : Controller
+    public class ShopController : Controller
     {
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 
-        // GET: Admin/Shops
+        // GET: Admin/Shop
         public ActionResult Index()
         {
-            var shops = db.Shops.Include(s => s.User);
+            var shops = db.Shop.Include(s => s.Users);
             return View(shops.ToList());
         }
 
-        // GET: Admin/Shops/Details/5
+        // GET: Admin/Shop/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.Shops.Find(id);
+            Shop shop = db.Shop.Find(id);
             if (shop == null)
             {
                 return HttpNotFound();
@@ -36,15 +36,15 @@ namespace Shopee_Food.Areas.Admin.Controllers
             return View(shop);
         }
 
-        // GET: Admin/Shops/Create
+        // GET: Admin/Shop/Create
         public ActionResult Create()
         {
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan");
             return View();
         }
 
-        // POST: Admin/Shops/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: Admin/Shop/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -52,33 +52,33 @@ namespace Shopee_Food.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Shops.Add(shop);
+                db.Shop.Add(shop);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
             return View(shop);
         }
 
-        // GET: Admin/Shops/Edit/5
+        // GET: Admin/Shop/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.Shops.Find(id);
+            Shop shop = db.Shop.Find(id);
             if (shop == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
             return View(shop);
         }
 
-        // POST: Admin/Shops/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: Admin/Shop/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,18 +90,18 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
             return View(shop);
         }
 
-        // GET: Admin/Shops/Delete/5
+        // GET: Admin/Shop/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.Shops.Find(id);
+            Shop shop = db.Shop.Find(id);
             if (shop == null)
             {
                 return HttpNotFound();
@@ -109,13 +109,13 @@ namespace Shopee_Food.Areas.Admin.Controllers
             return View(shop);
         }
 
-        // POST: Admin/Shops/Delete/5
+        // POST: Admin/Shop/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Shop shop = db.Shops.Find(id);
-            db.Shops.Remove(shop);
+            Shop shop = db.Shop.Find(id);
+            db.Shop.Remove(shop);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

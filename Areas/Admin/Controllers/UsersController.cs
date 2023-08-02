@@ -18,7 +18,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.ChucVu);
+            var users = db.User.Include(u => u.ChucVu);
             return View(users.ToList());
         }
 
@@ -29,7 +29,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            Users user = db.User.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -40,7 +40,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/Users/Create
         public ActionResult Create()
         {
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV");
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View();
         }
 
@@ -49,16 +49,16 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV")] User user)
+        public ActionResult Create([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV")] Users user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.User.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", user.MaCV);
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", user.MaCV);
             return View(user);
         }
 
@@ -69,12 +69,12 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            Users user = db.User.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", user.MaCV);
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", user.MaCV);
             return View(user);
         }
 
@@ -83,7 +83,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV")] User user)
+        public ActionResult Edit([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV")] Users user)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", user.MaCV);
+            ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", user.MaCV);
             return View(user);
         }
 
@@ -102,7 +102,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            Users user = db.User.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -115,8 +115,8 @@ namespace Shopee_Food.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Users user = db.User.Find(id);
+            db.User.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

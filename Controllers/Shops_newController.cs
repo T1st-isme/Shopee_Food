@@ -17,8 +17,8 @@ namespace Shopee_Food.Controllers
 
         public ActionResult UserDetails(int? MaTK)
         {
-            User user = db.Users.FirstOrDefault(u => u.MaTK == MaTK);
-            Shop shop = db.Shops.FirstOrDefault(s => s.MaTK == MaTK);
+            Users user = db.User.FirstOrDefault(u => u.MaTK == MaTK);
+            Shop shop = db.Shop.FirstOrDefault(s => s.MaTK == MaTK);
             var viewModel = new ShopUserModel
             {
                 User = user,
@@ -54,10 +54,10 @@ namespace Shopee_Food.Controllers
             //                    };
             //    return View(shopUsers.ToList());
 
-            List<User> users = db.Users.ToList();
+            List<Users> users = db.User.ToList();
 
             // Lấy danh sách Shop từ bảng Shop
-            List<Shop> shops = db.Shops.ToList();
+            List<Shop> shops = db.Shop.ToList();
 
             //string currentUserUsername = User.Identity.Name;
             //Users currentUser = db.Users.FirstOrDefault(u => u.TaiKhoan == currentUserUsername);
@@ -80,7 +80,7 @@ namespace Shopee_Food.Controllers
         // GET: Shops_new
         public ActionResult Index()
         {
-            var shop = db.Shops.Include(s => s.User);
+            var shop = db.Shop.Include(s => s.Users);
             return View(shop.ToList());
         }
 
@@ -91,7 +91,7 @@ namespace Shopee_Food.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.Shops.Find(id);
+            Shop shop = db.Shop.Find(id);
             if (shop == null)
             {
                 return HttpNotFound();
@@ -102,7 +102,7 @@ namespace Shopee_Food.Controllers
         // GET: Shops_new/Create
         public ActionResult Create()
         {
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan");
             return View();
         }
 
@@ -115,12 +115,12 @@ namespace Shopee_Food.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Shops.Add(shop);
+                db.Shop.Add(shop);
                 db.SaveChanges();
                 return RedirectToAction("Edit", new { id = shop.MaShop });
             }
 
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
             return View(shop);
         }
 
@@ -131,12 +131,12 @@ namespace Shopee_Food.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.Shops.Find(id);
+            Shop shop = db.Shop.Find(id);
             if (shop == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
 
             return View(shop);
         }
@@ -154,7 +154,7 @@ namespace Shopee_Food.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Edit", "Users_new", new { id = shop.MaTK });
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", shop.MaTK);
             return View(shop);
         }
 
@@ -165,7 +165,7 @@ namespace Shopee_Food.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Shop shop = db.Shops.Find(id);
+            Shop shop = db.Shop.Find(id);
             if (shop == null)
             {
                 return HttpNotFound();
@@ -178,8 +178,8 @@ namespace Shopee_Food.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Shop shop = db.Shops.Find(id);
-            db.Shops.Remove(shop);
+            Shop shop = db.Shop.Find(id);
+            db.Shop.Remove(shop);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -17,7 +17,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/KhachHangs
         public ActionResult Index()
         {
-            var khachHangs = db.KhachHangs.Include(k => k.User);
+            var khachHangs = db.KhachHang.Include(k => k.Users);
             return View(khachHangs.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
+            KhachHang khachHang = db.KhachHang.Find(id);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -39,12 +39,12 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/KhachHangs/Create
         public ActionResult Create()
         {
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan");
             return View();
         }
 
         // POST: Admin/KhachHangs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -52,12 +52,12 @@ namespace Shopee_Food.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.KhachHangs.Add(khachHang);
+                db.KhachHang.Add(khachHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", khachHang.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", khachHang.MaTK);
             return View(khachHang);
         }
 
@@ -68,17 +68,17 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
+            KhachHang khachHang = db.KhachHang.Find(id);
             if (khachHang == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", khachHang.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", khachHang.MaTK);
             return View(khachHang);
         }
 
         // POST: Admin/KhachHangs/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,7 +90,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", khachHang.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", khachHang.MaTK);
             return View(khachHang);
         }
 
@@ -101,7 +101,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
+            KhachHang khachHang = db.KhachHang.Find(id);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace Shopee_Food.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            KhachHang khachHang = db.KhachHangs.Find(id);
-            db.KhachHangs.Remove(khachHang);
+            KhachHang khachHang = db.KhachHang.Find(id);
+            db.KhachHang.Remove(khachHang);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

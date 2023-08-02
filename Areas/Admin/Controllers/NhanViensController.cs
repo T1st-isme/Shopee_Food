@@ -40,7 +40,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/NhanViens/Create
         public ActionResult Create()
         {
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", nhanVien.MaTK);
             return View(nhanVien);
         }
 
@@ -74,7 +74,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", nhanVien.MaTK);
             return View(nhanVien);
         }
 
@@ -91,7 +91,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
+            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", nhanVien.MaTK);
             return View(nhanVien);
         }
 
