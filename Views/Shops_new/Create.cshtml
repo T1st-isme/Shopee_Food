@@ -41,6 +41,13 @@
     </div>
 
     <div>
+        @Html.LabelFor(model => model.DiaChiShop, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @Html.EditorFor(model => model.DiaChiShop, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.DiaChiShop, "", new { @class = "text-danger" })
+    </div>
+
+    <div>
         @Html.LabelFor(model => model.MaTK, "MaTK", htmlAttributes: new { @class = "control-label col-md-2" })
 
         @Html.DropDownList("MaTK", null, htmlAttributes: new { @class = "form-control" })

@@ -168,6 +168,7 @@
     <Compile Include="Areas\Admin\Controllers\ChucVuController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhanViensController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamsAdController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShopController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\map\mapNhanVien.cs" />
@@ -2556,6 +2557,11 @@
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Areas\Admin\Views\Users\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamsAd\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamsAd\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamsAd\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamsAd\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamsAd\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -2601,7 +2607,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shops_new\all.cshtml" />
     <Content Include="Views\Shops_new\Create.cshtml" />
     <Content Include="Views\Shops_new\dangki.cshtml" />
     <Content Include="Views\Shops_new\Edit.cshtml" />

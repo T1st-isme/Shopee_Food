@@ -153,6 +153,7 @@ namespace Shopee_Food.Controllers
             if (users == null)
             {
                 return HttpNotFound();
+
             }
             ViewBag.MaCV = new SelectList(db.ChucVu, "MaCV", "TenCV", users.MaCV);
             return View(users);

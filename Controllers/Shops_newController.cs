@@ -15,6 +15,12 @@ namespace Shopee_Food.Controllers
     {
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 
+
+        public ActionResult dangki()
+        {
+            return View();
+        }
+
         public ActionResult UserDetails(int? MaTK)
         {
             Users user = db.User.FirstOrDefault(u => u.MaTK == MaTK);
@@ -32,51 +38,8 @@ namespace Shopee_Food.Controllers
         /// </summary>
         /// <returns></returns>
 
-        public ActionResult all()
-        {
-            // Lấy danh sách cửa hàng từ bảng Shop và kết hợp với thông tin từ bảng Users
-            //var shopUsers = from shop in db.Shop
-            //                    join user in db.Users on shop.MaTK equals user.MaTK
-            //                    select new ShopUserModel
-            //                    {
-            //                        Email = user.Email,
-            //                        TenShop = shop.TenShop,
-            //                        TinhTrang = shop.TinhTrang,
-            //                        AnhBia = shop.AnhBia,
-            //                        AnhDaiDien = shop.AnhDaiDien,
-            //                        AnhThucTe = shop.AnhThucTe,
-            //                        MaTK = user.MaTK,
-            //                        HoTen = user.HoTen,
-            //                        DiaChi = user.DiaChi,
-            //                        SDT = user.SDT,
-            //                        CCCD = user.CCCD,
-            //                        MoTa = shop.MoTa
-            //                    };
-            //    return View(shopUsers.ToList());
-
-            List<Users> users = db.User.ToList();
-
-            // Lấy danh sách Shop từ bảng Shop
-            List<Shop> shops = db.Shop.ToList();
-
-            //string currentUserUsername = User.Identity.Name;
-            //Users currentUser = db.Users.FirstOrDefault(u => u.TaiKhoan == currentUserUsername);
-
-            //if (currentUser == null)
-            //{
-            //    // Xử lý khi không tìm thấy thông tin người dùng đăng nhập
-            //    return RedirectToAction("Login", "Account"); // Chuyển hướng đến trang đăng nhập nếu không tìm thấy thông tin người dùng
-            //}
-
-            var viewModel = new ShopUserModel
-            {
-                Users = users,
-                Shops = shops
-            };
-
-            return View(viewModel);
-        }
-
+      
+         
         // GET: Shops_new
         public ActionResult Index()
         {
