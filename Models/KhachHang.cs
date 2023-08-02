@@ -17,9 +17,9 @@ namespace Shopee_Food.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
-            this.DonHangs = new HashSet<DonHang>();
-            this.HoaDons = new HashSet<HoaDon>();
-            this.ThanhToans = new HashSet<ThanhToan>();
+            this.DonHang = new HashSet<DonHang>();
+            this.HoaDon = new HashSet<HoaDon>();
+            this.ThanhToan = new HashSet<ThanhToan>();
         }
     
         public int MaKhachHang { get; set; }
@@ -31,11 +31,11 @@ namespace Shopee_Food.Models
         public string LoaiThanhVien { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHangs { get; set; }
+        public virtual ICollection<DonHang> DonHang { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<HoaDon> HoaDon { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThanhToan> ThanhToans { get; set; }
+        public virtual ICollection<ThanhToan> ThanhToan { get; set; }
     }
 }

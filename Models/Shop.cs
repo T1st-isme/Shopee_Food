@@ -17,8 +17,8 @@ namespace Shopee_Food.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Shop()
         {
-            this.DanhMucs = new HashSet<DanhMuc>();
-            this.SanPhams = new HashSet<SanPham>();
+            this.DanhMuc = new HashSet<DanhMuc>();
+            this.SanPham = new HashSet<SanPham>();
         }
     
         public int MaShop { get; set; }
@@ -32,11 +32,13 @@ namespace Shopee_Food.Models
         public string AnhThucTe { get; set; }
         public int MaTK { get; set; }
         public string HinhMenu { get; set; }
+        public string DiaChiShop { get; set; }
+        public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhMuc> DanhMucs { get; set; }
+        public virtual ICollection<DanhMuc> DanhMuc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SanPham> SanPhams { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<SanPham> SanPham { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

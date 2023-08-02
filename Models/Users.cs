@@ -12,14 +12,14 @@ namespace Shopee_Food.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Users()
         {
-            this.KhachHangs = new HashSet<KhachHang>();
-            this.NhanViens = new HashSet<NhanVien>();
-            this.Shops = new HashSet<Shop>();
+            this.KhachHang = new HashSet<KhachHang>();
+            this.NhanVien = new HashSet<NhanVien>();
+            this.Shop = new HashSet<Shop>();
         }
     
         public int MaTK { get; set; }
@@ -34,10 +34,10 @@ namespace Shopee_Food.Models
     
         public virtual ChucVu ChucVu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang> KhachHangs { get; set; }
+        public virtual ICollection<KhachHang> KhachHang { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        public virtual ICollection<NhanVien> NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Shop> Shops { get; set; }
+        public virtual ICollection<Shop> Shop { get; set; }
     }
 }

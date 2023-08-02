@@ -25,17 +25,17 @@ namespace Shopee_Food.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ChucVu> ChucVus { get; set; }
-        public virtual DbSet<DanhMuc> DanhMucs { get; set; }
-        public virtual DbSet<DonHang> DonHangs { get; set; }
-        public virtual DbSet<DonHangChiTiet> DonHangChiTiets { get; set; }
-        public virtual DbSet<HoaDon> HoaDons { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<Shop> Shops { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ThanhToan> ThanhToans { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ChucVu> ChucVu { get; set; }
+        public virtual DbSet<DanhMuc> DanhMuc { get; set; }
+        public virtual DbSet<DonHang> DonHang { get; set; }
+        public virtual DbSet<DonHangChiTiet> DonHangChiTiet { get; set; }
+        public virtual DbSet<HoaDon> HoaDon { get; set; }
+        public virtual DbSet<KhachHang> KhachHang { get; set; }
+        public virtual DbSet<NhanVien> NhanVien { get; set; }
+        public virtual DbSet<SanPham> SanPham { get; set; }
+        public virtual DbSet<Shop> Shop { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ThanhToan> ThanhToan { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

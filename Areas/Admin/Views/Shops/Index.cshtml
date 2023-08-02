@@ -6,6 +6,26 @@
     int i = 0;
 }
 
+<p>
+    <a href="/Admin/NhanViens/Create"
+       class="btn btn-primary">Thêm Shop</a>
+</p>
+<div>
+    <form>
+        <select name="danhgia" value="@ViewBag.DanhGia">
+            <option>Tất cả</option>
+            @foreach (var item in new Shopee_Food.Areas.Admin.map.mapNhanVien().DanhSach())
+            {
+                <option value="@item.DanhGia" @Html.Raw(item.DanhGia == ViewBag.DanhGia ? "selected" : "")>@item.DanhGia</option>
+            }
+        </select>
+        <input name="tukhoa" value="@ViewBag.TimKiem" />
+        <button>
+            Tìm kiếm
+        </button>
+    </form>
+</div>
+
 <div class="card-body">
     <table class="table table-bordered table-responsive-md table-striped">
         <thead style="color:cadetblue">
