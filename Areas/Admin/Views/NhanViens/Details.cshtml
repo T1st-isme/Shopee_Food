@@ -10,7 +10,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Thông tin nhân viên <b>@Model.User.HoTen</b></h3>
+            <h3 class="card-title">Thông tin nhân viên <b>@Model.Users.HoTen</b></h3>
 
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -36,7 +36,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.User.HoTen)
+                    @Html.DisplayFor(model => model.Users.HoTen)
                 </dd>
 
                 <dt>
@@ -44,32 +44,32 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.User.TaiKhoan)
+                    @Html.DisplayFor(model => model.Users.TaiKhoan)
                 </dd>
                 <dt>
                     Mật khẩu
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.User.MatKhau)
+                    @Html.DisplayFor(model => model.Users.MatKhau)
                 </dd>
                 <dt>
                     Email
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.User.Email)
+                    @Html.DisplayFor(model => model.Users.Email)
                 </dd>
                 <dt>
                     SĐT
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.User.SDT)
+                    @Html.DisplayFor(model => model.Users.SDT)
                 </dd>
                 <dt>
                     Địa chỉ
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.User.DiaChi)
+                    @Html.DisplayFor(model => model.Users.DiaChi)
                 </dd>
                 <dt>
                     Đánh giá
@@ -82,7 +82,7 @@
                     Chức vụ
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.User.ChucVu.TenCV)
+                    @Html.DisplayFor(model => model.Users.ChucVu.TenCV)
                 </dd>
             </dl>
         </div>
