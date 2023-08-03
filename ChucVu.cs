@@ -7,27 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DanhMuc
+    public partial class ChucVu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DanhMuc()
+        public ChucVu()
         {
-            this.SanPhams = new HashSet<SanPham>();
+            this.NhanViens = new HashSet<NhanVien>();
+            this.Users = new HashSet<User>();
         }
     
-        public int MaDM { get; set; }
-        public string TenDanhMuc { get; set; }
-        public int MaShop { get; set; }
+        public int MaCV { get; set; }
+        public string TenCV { get; set; }
     
-        public virtual Shop Shop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-        public virtual ICollection<SanPham> SanPhams { get; set; }
-
+        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }

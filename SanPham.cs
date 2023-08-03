@@ -7,36 +7,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Shop
+    public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Shop()
+        public SanPham()
         {
-            this.DanhMucs = new HashSet<DanhMuc>();
-            this.SanPhams = new HashSet<SanPham>();
+            this.DonHangs = new HashSet<DonHang>();
+            this.DonHangChiTiets = new HashSet<DonHangChiTiet>();
         }
     
+        public int MaSP { get; set; }
         public int MaShop { get; set; }
-        public string TenShop { get; set; }
-        public string DanhGia { get; set; }
-        public string TinhTrang { get; set; }
-        public Nullable<int> SoLuongSanPham { get; set; }
-        public Nullable<decimal> DoanhThu { get; set; }
-        public string AnhBia { get; set; }
-        public string AnhDaiDien { get; set; }
-        public string AnhThucTe { get; set; }
-        public int MaTK { get; set; }
-        public string HinhMenu { get; set; }
+        public int MaDM { get; set; }
+        public string TenSP { get; set; }
+        public string Loai { get; set; }
+        public decimal DonGia { get; set; }
+        public Nullable<int> Soluongdaban { get; set; }
+        public Nullable<int> Soluongton { get; set; }
     
+        public virtual DanhMuc DanhMuc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhMuc> DanhMucs { get; set; }
+        public virtual ICollection<DonHang> DonHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SanPham> SanPhams { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<DonHangChiTiet> DonHangChiTiets { get; set; }
+        public virtual Shop Shop { get; set; }
     }
 }

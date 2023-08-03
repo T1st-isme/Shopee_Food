@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class DonHangChiTiet
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int MaSP { get; set; }
+        public int MaCTDH { get; set; }
+        public Nullable<int> Soluong { get; set; }
+        public Nullable<int> Gia { get; set; }
+        public Nullable<int> Tongtien { get; set; }
+    
+        public virtual SanPham SanPham { get; set; }
     }
 }

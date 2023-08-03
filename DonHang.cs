@@ -7,25 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class NhanVien
+    public partial class DonHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhanVien()
+        public DonHang()
         {
             this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int MaNV { get; set; }
-        public int MaTK { get; set; }
-        public string DanhGia { get; set; }
+        public int MaDH { get; set; }
+        public int MaKH { get; set; }
+        public string DiaDiemGiaoHang { get; set; }
+        public Nullable<System.DateTime> NgayDat { get; set; }
+        public Nullable<System.DateTime> NgayGiao { get; set; }
+        public int MaSP { get; set; }
+        public string TrangThai { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
     
+        public virtual KhachHang KhachHang { get; set; }
+        public virtual SanPham SanPham { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
-        public virtual User User { get; set; }
     }
 }

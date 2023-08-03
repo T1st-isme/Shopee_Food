@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;

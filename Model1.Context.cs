@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Data.Entity;
@@ -34,7 +34,6 @@ namespace Shopee_Food.Models
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<Shop> Shops { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThanhToan> ThanhToans { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }

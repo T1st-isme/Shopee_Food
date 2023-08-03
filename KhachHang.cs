@@ -7,34 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SanPham
+    public partial class KhachHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SanPham()
+        public KhachHang()
         {
             this.DonHangs = new HashSet<DonHang>();
-            this.DonHangChiTiets = new HashSet<DonHangChiTiet>();
+            this.HoaDons = new HashSet<HoaDon>();
+            this.ThanhToans = new HashSet<ThanhToan>();
         }
     
-        public int MaSP { get; set; }
-        public int MaShop { get; set; }
-        public int MaDM { get; set; }
-        public string TenSP { get; set; }
-        public string Loai { get; set; }
-        public decimal DonGia { get; set; }
-        public Nullable<int> Soluongdaban { get; set; }
-        public Nullable<int> Soluongton { get; set; }
+        public int MaKhachHang { get; set; }
+        public int MaTK { get; set; }
+        public string TenKhachHang { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
+        public string DiaChi { get; set; }
+        public string LoaiThanhVien { get; set; }
     
-        public virtual DanhMuc DanhMuc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHangChiTiet> DonHangChiTiets { get; set; }
-        public virtual Shop Shop { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ThanhToan> ThanhToans { get; set; }
     }
 }

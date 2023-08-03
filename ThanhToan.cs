@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shopee_Food.Models
+namespace Shopee_Food
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DonHangChiTiet
+    public partial class ThanhToan
     {
-        public int MaSP { get; set; }
-        public int MaCTDH { get; set; }
-        public Nullable<int> Soluong { get; set; }
-        public Nullable<int> Gia { get; set; }
-        public Nullable<int> Tongtien { get; set; }
+        public int MaTT { get; set; }
+        public int MaKH { get; set; }
+        public string STK { get; set; }
+        public string PTTT { get; set; }
     
-        public virtual SanPham SanPham { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }
