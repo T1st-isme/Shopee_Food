@@ -8,12 +8,12 @@ namespace Shopee_Food.Areas.Admin.map
 {
     public class mapTaiKhoan
     {
-        public Users ChiTiet(string TaiKhoan)
+        public User ChiTiet(string taiKhoan, string passWord)
         {
             try
             {
                 DBShopeeFoodEntities db = new DBShopeeFoodEntities();
-                var data = db.User.SingleOrDefault(m => m.TaiKhoan == TaiKhoan);
+                var data = db.Users.SingleOrDefault(m => m.TaiKhoan == taiKhoan && m.MatKhau == passWord);
                 return data;
             }
             catch (Exception)

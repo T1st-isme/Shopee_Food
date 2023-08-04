@@ -17,7 +17,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/SanPhamsAd
         public ActionResult Index()
         {
-            var sanPham = db.SanPham.Include(s => s.DanhMuc).Include(s => s.DanhMuc1).Include(s => s.Shop);
+            var sanPham = db.SanPhams.Include(s => s.DanhMuc).Include(s => s.DanhMuc1).Include(s => s.Shop);
             return View(sanPham.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.SanPham.Find(id);
+            SanPham sanPham = db.SanPhams.Find(id);
             if (sanPham == null)
             {
                 return HttpNotFound();
@@ -39,14 +39,14 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/SanPhamsAd/Create
         public ActionResult Create()
         {
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc");
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc");
-            ViewBag.MaShop = new SelectList(db.Shop, "MaShop", "TenShop");
+            ViewBag.MaDM = new SelectList(db.DanhMucs, "MaDM", "TenDanhMuc");
+            ViewBag.MaDM = new SelectList(db.DanhMucs, "MaDM", "TenDanhMuc");
+            ViewBag.MaShop = new SelectList(db.Shops, "MaShop", "TenShop");
             return View();
         }
 
         // POST: Admin/SanPhamsAd/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -54,14 +54,13 @@ namespace Shopee_Food.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.SanPham.Add(sanPham);
+                db.SanPhams.Add(sanPham);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc", sanPham.MaDM);
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc", sanPham.MaDM);
-            ViewBag.MaShop = new SelectList(db.Shop, "MaShop", "TenShop", sanPham.MaShop);
+            ViewBag.MaDM = new SelectList(db.DanhMucs, "MaDM", "TenDanhMuc", sanPham.MaDM);
+            ViewBag.MaShop = new SelectList(db.Shops, "MaShop", "TenShop", sanPham.MaShop);
             return View(sanPham);
         }
 
@@ -72,19 +71,18 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.SanPham.Find(id);
+            SanPham sanPham = db.SanPhams.Find(id);
             if (sanPham == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc", sanPham.MaDM);
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc", sanPham.MaDM);
-            ViewBag.MaShop = new SelectList(db.Shop, "MaShop", "TenShop", sanPham.MaShop);
+            ViewBag.MaDM = new SelectList(db.DanhMucs, "MaDM", "TenDanhMuc", sanPham.MaDM);
+            ViewBag.MaShop = new SelectList(db.Shops, "MaShop", "TenShop", sanPham.MaShop);
             return View(sanPham);
         }
 
         // POST: Admin/SanPhamsAd/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -96,9 +94,8 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc", sanPham.MaDM);
-            ViewBag.MaDM = new SelectList(db.DanhMuc, "MaDM", "TenDanhMuc", sanPham.MaDM);
-            ViewBag.MaShop = new SelectList(db.Shop, "MaShop", "TenShop", sanPham.MaShop);
+            ViewBag.MaDM = new SelectList(db.DanhMucs, "MaDM", "TenDanhMuc", sanPham.MaDM);
+            ViewBag.MaShop = new SelectList(db.Shops, "MaShop", "TenShop", sanPham.MaShop);
             return View(sanPham);
         }
 
@@ -109,7 +106,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.SanPham.Find(id);
+            SanPham sanPham = db.SanPhams.Find(id);
             if (sanPham == null)
             {
                 return HttpNotFound();
@@ -122,8 +119,8 @@ namespace Shopee_Food.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SanPham sanPham = db.SanPham.Find(id);
-            db.SanPham.Remove(sanPham);
+            SanPham sanPham = db.SanPhams.Find(id);
+            db.SanPhams.Remove(sanPham);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

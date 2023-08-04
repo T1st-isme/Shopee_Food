@@ -1,8 +1,4 @@
-﻿@{
-    var user = (Shopee_Food.Models.Users)System.Web.HttpContext.Current.Session["user"];
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -87,7 +83,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="~/Admin/AdHome" class="brand-link">
                 <img src="~/Content/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">ShopeeFood ADMIN</span>
             </a>
@@ -95,13 +91,17 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="user-panel mt-4 mb-4 d-flex">
                     <div class="image">
                         <img src="~/Content/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        @*<a href="#" class="d-block">@user.TaiKhoan</a>*@
+                        @{
+                            var user = (Shopee_Food.Models.User)System.Web.HttpContext.Current.Session["user"];
+                        }
+                        <a href="#" style="font-size:20px; font-weight:500; margin-bottom:20px ">@user.TaiKhoan</a>
                     </div>
+                    <span><a href="~/Admin/AdHome/Logout" class="btn btn-outline-danger" style="margin-left:25px; margin-bottom:20px">Đăng xuất</a></span>
                 </div>
 
                 <!-- SidebarSearch Form -->
@@ -150,11 +150,6 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="@Url.Action("Index", "NhanViens")" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách nhân viên</p>
-                                    </a>
-
-                                    <a href="@Url.Action("Create", "NhanViens")" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Create" ? "active" : "")">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách nhân viên</p>
                                     </a>

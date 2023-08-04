@@ -7,116 +7,115 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Shopee_Food.Models;
-using Shopee_Food.Areas.Admin.map;
 
 namespace Shopee_Food.Areas.Admin.Controllers
 {
-    public class UsersController : Controller
+    public class ShopsController : Controller
     {
         private DBShopeeFoodEntities db = new DBShopeeFoodEntities();
 
-        // GET: Admin/Users
+        // GET: Admin/Shops
         public ActionResult Index()
         {
-            var users = db.Users.ToList();
-            return View(users);
+            var shops = db.Shops.Include(s => s.User);
+            return View(shops.ToList());
         }
 
-        // GET: Admin/Users/Details/5
+        // GET: Admin/Shops/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Shop shop = db.Shops.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(shop);
         }
 
-        // GET: Admin/Users/Create
+        // GET: Admin/Shops/Create
         public ActionResult Create()
         {
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV");
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
             return View();
         }
 
-        // POST: Admin/Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // POST: Admin/Shops/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV")] User user)
+        public ActionResult Create([Bind(Include = "MaShop,TenShop,DanhGia,TinhTrang,SoLuongSanPham,DoanhThu,AnhBia,AnhDaiDien,AnhThucTe,MaTK,HinhMenu,DiaChiShop,MoTa")] Shop shop)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Shops.Add(shop);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", user.ChucVu);
-            return View(user);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // GET: Admin/Users/Edit/5
+        // GET: Admin/Shops/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Shop shop = db.Shops.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", user.ChucVu);
-            return View(user);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // POST: Admin/Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // POST: Admin/Shops/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaTK,TaiKhoan,MatKhau,HoTen,DiaChi,SDT,Email,GioiTinh,MaCV")] User user)
+        public ActionResult Edit([Bind(Include = "MaShop,TenShop,DanhGia,TinhTrang,SoLuongSanPham,DoanhThu,AnhBia,AnhDaiDien,AnhThucTe,MaTK,HinhMenu,DiaChiShop,MoTa")] Shop shop)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(shop).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaCV = new SelectList(db.ChucVus, "MaCV", "TenCV", user.ChucVu);
-            return View(user);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", shop.MaTK);
+            return View(shop);
         }
 
-        // GET: Admin/Users/Delete/5
+        // GET: Admin/Shops/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Shop shop = db.Shops.Find(id);
+            if (shop == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(shop);
         }
 
-        // POST: Admin/Users/Delete/5
+        // POST: Admin/Shops/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Shop shop = db.Shops.Find(id);
+            db.Shops.Remove(shop);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

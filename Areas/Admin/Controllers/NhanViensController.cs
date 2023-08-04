@@ -29,7 +29,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanVien.Find(id);
+            NhanVien nhanVien = db.NhanViens.Find(id);
             if (nhanVien == null)
             {
                 return HttpNotFound();
@@ -40,7 +40,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
         // GET: Admin/NhanViens/Create
         public ActionResult Create()
         {
-            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan");
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan");
             return View();
         }
 
@@ -53,12 +53,12 @@ namespace Shopee_Food.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.NhanVien.Add(nhanVien);
+                db.NhanViens.Add(nhanVien);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", nhanVien.MaTK);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
             return View(nhanVien);
         }
 
@@ -69,12 +69,12 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanVien.Find(id);
+            NhanVien nhanVien = db.NhanViens.Find(id);
             if (nhanVien == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", nhanVien.MaTK);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
             return View(nhanVien);
         }
 
@@ -91,7 +91,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaTK = new SelectList(db.User, "MaTK", "TaiKhoan", nhanVien.MaTK);
+            ViewBag.MaTK = new SelectList(db.Users, "MaTK", "TaiKhoan", nhanVien.MaTK);
             return View(nhanVien);
         }
 
@@ -102,7 +102,7 @@ namespace Shopee_Food.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhanVien nhanVien = db.NhanVien.Find(id);
+            NhanVien nhanVien = db.NhanViens.Find(id);
             if (nhanVien == null)
             {
                 return HttpNotFound();
@@ -115,8 +115,8 @@ namespace Shopee_Food.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NhanVien nhanVien = db.NhanVien.Find(id);
-            db.NhanVien.Remove(nhanVien);
+            NhanVien nhanVien = db.NhanViens.Find(id);
+            db.NhanViens.Remove(nhanVien);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

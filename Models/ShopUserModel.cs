@@ -8,7 +8,7 @@ namespace Shopee_Food.Models
 {
     public class ShopUserModel
     {
-        public List<Users> Users { get; set; } // Danh sách User
+        public List<User> Users { get; set; } // Danh sách User
         public List<Shop> Shops { get; set; } // Danh sách Shop
 
         //Shop
@@ -42,9 +42,9 @@ namespace Shopee_Food.Models
         public string STK { get; set; }
         public string PTTT { get; set; }
         public List<Shop> TaiKhoanList { get; set; } // Danh sách MaTK từ bảng Users
-        public Users UserModel { get; set; } // Thay ShopUserModel bằng tên lớp User của bạn
+        public User UserModel { get; set; } // Thay ShopUserModel bằng tên lớp User của bạn
         public Shop ShopModel { get; set; } // Thay ShopModel bằng tên lớp Shop của bạn
-        public Users User { get; internal set; }
+        public User User { get; internal set; }
         public Shop Shop { get; internal set; }
     }
 }

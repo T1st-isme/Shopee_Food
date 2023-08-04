@@ -12,7 +12,7 @@ namespace Shopee_Food.Areas.Admin.map
 
         public List<NhanVien> DanhSach()
         {
-            var dataNV = db.NhanVien.ToList();
+            var dataNV = db.NhanViens.ToList();
             return dataNV;
         }
 
@@ -20,11 +20,11 @@ namespace Shopee_Food.Areas.Admin.map
         {
             if (danhgia == "Tất cả") { danhgia = null; }
             //var dataNV = db.NhanViens.Where(n => n.User.HoTen.Contains(diachi.ToLower()) == true || string.IsNullOrEmpty(diachi)).ToList();
-            var dataNV = (from item in db.NhanVien
-                          where (item.Users.HoTen.Contains(diachi.ToLower()) == true || string.IsNullOrEmpty(diachi))
+            var dataNV = (from item in db.NhanViens
+                          where (item.User.HoTen.Contains(diachi.ToLower()) == true || string.IsNullOrEmpty(diachi))
                           && (danhgia == null || item.DanhGia == danhgia)
                           select item).ToList();
-            return dataNV.OrderBy(n => n.Users.HoTen).ToList();
+            return dataNV.OrderBy(n => n.User.HoTen).ToList();
         }
     }
 }

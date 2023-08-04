@@ -1,10 +1,7 @@
 ﻿@{
     ViewBag.Title = "Trang chủ";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
-    var user = (Shopee_Food.Models.Users)System.Web.HttpContext.Current.Session["user"];
 }
-
-<h2>@user.TaiKhoan</h2>
 
 <div class="content">
     <div class="container-fluid">

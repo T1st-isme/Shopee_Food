@@ -15,10 +15,10 @@ namespace Shopee_Food.Models
     public partial class ThanhToan
     {
         public int MaTT { get; set; }
-        public int MaKH { get; set; }
         public string STK { get; set; }
         public string PTTT { get; set; }
+        public Nullable<int> MaTK { get; set; }
     
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual User User { get; set; }
     }
 }
