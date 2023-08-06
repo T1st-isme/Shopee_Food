@@ -43,6 +43,15 @@
           <Property Name="Gia" Type="int" />
           <Property Name="Tongtien" Type="int" />
         </EntityType>
+        <EntityType Name="GioHang">
+          <Key>
+            <PropertyRef Name="id_GH" />
+          </Key>
+          <Property Name="id_GH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="MaSP" Type="int" />
+          <Property Name="quantity" Type="int" />
+        </EntityType>
         <EntityType Name="HoaDon">
           <Key>
             <PropertyRef Name="MaHD" />
@@ -307,11 +316,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_id_user_cart">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="GioHang" Type="Self.GioHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="MaTK" />
+            </Principal>
+            <Dependent Role="GioHang">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaDT_order_item">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="GioHang" Type="Self.GioHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="GioHang">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBShopeeFoodModelStoreContainer">
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonHangChiTiet" EntityType="Self.DonHangChiTiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GioHang" EntityType="Self.GioHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
@@ -378,6 +412,14 @@
           <AssociationSet Name="FK__Users__MaCV__267ABA7A" Association="Self.FK__Users__MaCV__267ABA7A">
             <End Role="ChucVu" EntitySet="ChucVu" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_id_user_cart" Association="Self.FK_id_user_cart">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GioHang" EntitySet="GioHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaDT_order_item" Association="Self.FK_MaDT_order_item">
+            <End Role="SanPham" EntitySet="SanPham" />
+            <End Role="GioHang" EntitySet="GioHang" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -488,6 +530,7 @@
           <NavigationProperty Name="DonHangs" Relationship="Self.FK__DonHang__MaSP__35BCFE0A" FromRole="SanPham" ToRole="DonHang" />
           <NavigationProperty Name="DonHangChiTiets" Relationship="Self.FK__DonHangChi__MaSP__398D8EEE" FromRole="SanPham" ToRole="DonHangChiTiet" />
           <NavigationProperty Name="Shop" Relationship="Self.FK__SanPham__MaShop__31EC6D26" FromRole="SanPham" ToRole="Shop" />
+          <NavigationProperty Name="GioHangs" Relationship="DBShopeeFoodModel.FK_MaDT_order_item" FromRole="SanPham" ToRole="GioHang" />
         </EntityType>
         <EntityType Name="Shop">
           <Key>
@@ -535,6 +578,7 @@
           <NavigationProperty Name="KhachHangs" Relationship="Self.FK__KhachHang__MaTK__29572725" FromRole="Users" ToRole="KhachHang" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaTK__3C69FB99" FromRole="Users" ToRole="NhanVien" />
           <NavigationProperty Name="Shops" Relationship="Self.FK__Shop__MaTK__2C3393D0" FromRole="Users" ToRole="Shop" />
+          <NavigationProperty Name="GioHangs" Relationship="DBShopeeFoodModel.FK_id_user_cart" FromRole="User" ToRole="GioHang" />
         </EntityType>
         <Association Name="FK__NhanVien__MaCV__3D5E1FD2">
           <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
@@ -788,7 +832,51 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Shop" EntitySet="Shops" />
           </AssociationSet>
+          <EntitySet Name="GioHangs" EntityType="DBShopeeFoodModel.GioHang" />
+          <AssociationSet Name="FK_id_user_cart" Association="DBShopeeFoodModel.FK_id_user_cart">
+            <End Role="User" EntitySet="Users" />
+            <End Role="GioHang" EntitySet="GioHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaDT_order_item" Association="DBShopeeFoodModel.FK_MaDT_order_item">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="GioHang" EntitySet="GioHangs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="GioHang">
+          <Key>
+            <PropertyRef Name="id_GH" />
+          </Key>
+          <Property Name="id_GH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="MaSP" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="DBShopeeFoodModel.FK_id_user_cart" FromRole="GioHang" ToRole="User" />
+          <NavigationProperty Name="SanPham" Relationship="DBShopeeFoodModel.FK_MaDT_order_item" FromRole="GioHang" ToRole="SanPham" />
+        </EntityType>
+        <Association Name="FK_id_user_cart">
+          <End Type="DBShopeeFoodModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="DBShopeeFoodModel.GioHang" Role="GioHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="MaTK" />
+            </Principal>
+            <Dependent Role="GioHang">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaDT_order_item">
+          <End Type="DBShopeeFoodModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+          <End Type="DBShopeeFoodModel.GioHang" Role="GioHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="GioHang">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -925,6 +1013,16 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GioHangs">
+            <EntityTypeMapping TypeName="DBShopeeFoodModel.GioHang">
+              <MappingFragment StoreEntitySet="GioHang">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_GH" ColumnName="id_GH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

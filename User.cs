@@ -20,6 +20,7 @@ namespace Shopee_Food
             this.KhachHangs = new HashSet<KhachHang>();
             this.NhanViens = new HashSet<NhanVien>();
             this.Shops = new HashSet<Shop>();
+            this.GioHangs = new HashSet<GioHang>();
         }
     
         public int MaTK { get; set; }
@@ -39,5 +40,7 @@ namespace Shopee_Food
         public virtual ICollection<NhanVien> NhanViens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop> Shops { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GioHang> GioHangs { get; set; }
     }
 }

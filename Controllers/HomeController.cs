@@ -20,9 +20,12 @@ namespace Shopee_Food.Controllers
             return View(getShop);
         }
 
-        public ActionResult DetailShop()
+        public ActionResult DetailShop(int MaShop)
         {
-            return View();
+            var getSanPham = db.SanPhams.Where(x => x.MaShop == MaShop).ToList();
+            var getShop = db.Shops.FirstOrDefault(x => x.MaShop == MaShop);
+            ViewBag.Shop = getShop;
+            return View(getSanPham);
         }
 
         public ActionResult About()

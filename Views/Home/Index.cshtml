@@ -41,9 +41,9 @@
             -ms-overflow-style: none; /* Edge */
             :: -webkit-scrollbar
 
-        {
-            display: none; /* Chrome, Safari */
-        }
+            {
+                display: none; /* Chrome, Safari */
+            }
 
         }
 
@@ -125,8 +125,8 @@
                         @{
                             foreach (var i in Model)
                             {
-                                <a href="#" class=" card_box">
-                                    <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1; left: -1; border-radius: 50%; border: 2px solid white;"></div>
+                                <a href="@Url.Action("DetailShop", "Home", new {MaShop = i.MaShop })" class=" card_box">
+                                    <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1px; left: -1px; border-radius: 50%; border: 2px solid white;"></div>
                                     <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="~/Images/@i.AnhBia" />
                                     <p class="name_sp"> @i.TenShop</p>
                                     <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
@@ -136,7 +136,7 @@
                             }
                         }
                         <a href="#" class=" card_box">
-                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1; left: -1; border-radius: 50%; border: 2px solid white;"></div>
+                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1px; left: -1px; border-radius: 50%; border: 2px solid white;"></div>
                             <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
                             <p class="name_sp"> Cơm Tấm ba ghiền</p>
                             <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
@@ -144,7 +144,7 @@
                         </a>
 
                         <a href="#" class=" card_box">
-                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1; left: -1; border-radius: 50%; border: 2px solid white;"></div>
+                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1px; left: -1px; border-radius: 50%; border: 2px solid white;"></div>
                             <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
                             <p class="name_sp"> Cơm Tấm ba ghiền</p>
                             <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
@@ -152,7 +152,7 @@
                         </a>
 
                         <a href="#" class=" card_box">
-                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1; left: -1; border-radius: 50%; border: 2px solid white;"></div>
+                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1px; left: -1px; border-radius: 50%; border: 2px solid white;"></div>
                             <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
                             <p class="name_sp"> Cơm Tấm ba ghiền</p>
                             <p class="address_sp"> 146, nguyễn văn trổi, ....</p>
@@ -160,7 +160,7 @@
                         </a>
 
                         <a href="#" class=" card_box">
-                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1; left: -1; border-radius: 50%; border: 2px solid white;"></div>
+                            <div style="width: 20px; height:20px; background-color: green; position: absolute; top:-1px; left: -1px; border-radius: 50%; border: 2px solid white;"></div>
                             <img style="object-fit: cover; width: 150px; margin-bottom: 10px;" src="https://images.foody.vn/res/g116/1155652/prof/s280x175/foody-upload-api-foody-mobile-im-6522b18f-221112225428.jpeg" />
                             <p class="name_sp"> Cơm Tấm ba ghiền</p>
                             <p class="address_sp"> 146, nguyễn văn trổi, ....</p>

@@ -19,6 +19,7 @@ namespace Shopee_Food
         {
             this.DonHangs = new HashSet<DonHang>();
             this.DonHangChiTiets = new HashSet<DonHangChiTiet>();
+            this.GioHangs = new HashSet<GioHang>();
         }
     
         public int MaSP { get; set; }
@@ -36,5 +37,7 @@ namespace Shopee_Food
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHangChiTiet> DonHangChiTiets { get; set; }
         public virtual Shop Shop { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GioHang> GioHangs { get; set; }
     }
 }

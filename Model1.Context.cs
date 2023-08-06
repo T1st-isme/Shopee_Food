@@ -36,5 +36,6 @@ namespace Shopee_Food
         public virtual DbSet<Shop> Shops { get; set; }
         public virtual DbSet<ThanhToan> ThanhToans { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<GioHang> GioHangs { get; set; }
     }
 }
