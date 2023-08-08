@@ -30,11 +30,11 @@ namespace Shopee_Food.Controllers
         public List<MatHangMua> getCarts()
         {
 
-            //var getTempUser = db.Users.FirstOrDefault(x => x.MaTK == 6);
-            //if (getTempUser != null)
-            //    Session["user"] = getTempUser;
+            var getTempUser = db.Users.FirstOrDefault(x => x.MaTK == 6);
+            if (getTempUser != null)
+                Session["user"] = getTempUser;
 
-            
+
             var getUser = Session["user"] as User;
 
             List<MatHangMua> gioHang = Session["GioHang"] as List<MatHangMua>;

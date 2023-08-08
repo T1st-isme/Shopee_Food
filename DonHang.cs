@@ -17,21 +17,20 @@ namespace Shopee_Food
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonHang()
         {
-            this.HoaDons = new HashSet<HoaDon>();
+            this.DonHangChiTiets = new HashSet<DonHangChiTiet>();
         }
     
         public int MaDH { get; set; }
-        public int MaKH { get; set; }
+        public int MaTK { get; set; }
         public string DiaDiemGiaoHang { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
         public Nullable<System.DateTime> NgayGiao { get; set; }
-        public int MaSP { get; set; }
         public string TrangThai { get; set; }
         public Nullable<decimal> TongTien { get; set; }
+        public Nullable<bool> payment_type { get; set; }
     
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual SanPham SanPham { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<DonHangChiTiet> DonHangChiTiets { get; set; }
     }
 }

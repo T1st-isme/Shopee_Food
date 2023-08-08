@@ -179,6 +179,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\Shops_newController.cs" />
     <Compile Include="Controllers\Users_newController.cs" />
     <Compile Include="DanhMuc.cs">
@@ -195,9 +196,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="HoaDon.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="KhachHang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -2622,6 +2620,8 @@
     <Content Include="Views\Home\DetailShop.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\CartNoProduct.cshtml" />
+    <Content Include="Views\Payment\PayCOD.cshtml" />
+    <Content Include="Views\Payment\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
