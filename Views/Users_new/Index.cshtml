@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Shopee_Food.Models.Users>
+﻿@model IEnumerable<Shopee_Food.Models.User>
 
 @{
     ViewBag.Title = "Index";
@@ -34,7 +34,7 @@
             @Html.DisplayNameFor(model => model.GioiTinh)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChucVu.TenCV)
+            @Html.DisplayNameFor(model => model.ChucVu)
         </th>
         <th></th>
     </tr>
@@ -64,7 +64,7 @@
                 @Html.DisplayFor(modelItem => item.GioiTinh)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
+                @Html.DisplayFor(modelItem => item.ChucVu)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaTK }) |
@@ -72,5 +72,62 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.MaTK })
             </td>
         </tr>
+        @if (Session["UserName"] == null)
+        {
+
+        }
+        else
+        {
+            <span class="header__menu_bar">
+                <i class="header__menu_bar--icon fa fa-bars"></i>
+                <ul class="submenu_bar">
+                    <li class="submenu_bar--list">
+                        @if (HttpContext.Current.Session == null)
+                        {
+
+                        }
+                        else
+                        {
+                            <a class="submenu_bar--list--text" href="/Customers/Edit/@HttpContext.Current.Session["IDCus"].ToString()" style="font-size:12px;">Thông Tin</a>
+                        }
+                    </li>
+                    <li class="submenu_bar--list">
+                        @if (HttpContext.Current.Session == null)
+
+                        {
+
+                        }
+                        else
+
+                        {
+                            <a class="submenu_bar--list--text"> @Html.ActionLink("Đơn mua", "GetOrdersByCustomer", "OrderProes", new { IDCus = @HttpContext.Current.Session["IDCus"].ToString() }, null)</a>
+                        }
+                    </li>
+                    <li class="submenu_bar--list">
+
+                        @if (HttpContext.Current.Session == null)
+
+                        {
+
+                        }
+                        else
+
+                        {
+                            <a href="/ShoppingCart/ShowCart" class="submenu_bar--list--text">Giỏ Hàng</a>
+                        }
+                    </li>
+                    <li class="submenu_bar--list">
+                        @if (HttpContext.Current.Session == null)
+                        {
+
+                        }
+                        else
+                        {
+                            <a href="/Customers/LogOutUser" class="submenu_bar--list--text">Đăng xuất</a>
+                        }
+                    </li>
+                </ul>
+            </span>
+        }
     }
 </table>

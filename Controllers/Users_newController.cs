@@ -22,6 +22,10 @@ namespace Shopee_Food.Controllers
             return RedirectToAction("Index", "LoginUser");
         }
 
+        public void abc()
+        {
+        }
+
         [HttpGet]
         public ActionResult RegisterUser()
         {
@@ -89,8 +93,7 @@ namespace Shopee_Food.Controllers
         // GET: Users_new
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.ChucVu);
-            return View(users.ToList());
+            return View(db.Users.ToList());
         }
 
         // GET: Users_new/Details/5

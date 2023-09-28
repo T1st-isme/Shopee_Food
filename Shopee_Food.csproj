@@ -2630,6 +2630,7 @@
     <Content Include="Views\Shared\_DangnhapUser.cshtml" />
     <Content Include="Views\Shared\_LayoutDangKi.cshtml" />
     <Content Include="Views\Shared\_LayoutDkb1.cshtml" />
+    <Content Include="Views\Home\DetailShop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
